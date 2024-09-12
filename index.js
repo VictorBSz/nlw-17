@@ -27,15 +27,15 @@ const listarMetas = async () => {
         choices: [...metas], // A reticencias indica para o app jogar tudo do array "metas" dentro do choices
         instructions: false
     })
+    
+    metas.forEach((m) => {
+        m.checked = false
+    })
 
     if(respostas.length == 0) {
         console.log("Nenhuma meta selecionada!")
         return
     }
-
-    metas.forEach((m) => {
-        m.checked = false
-    })
 
     respostas.forEach((resposta) => {   // forEach para passar a function por cada resposta em respostas
         const meta = metas.find((m) => {    // find para encontrar a meta em metas, testando uma a uma
