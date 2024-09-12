@@ -80,6 +80,30 @@ const metasRealizadas = async () => {
         choices: [...realizadas]
     })
 }
+
+const deletarMetas = async () => {
+    const metasDesmarcadas = metas.map((meta) => {
+        return { value: meta.value, checked: false }
+    })
+    const paraDeletar = await checkbox({
+        message: "↑↓←→: Selecionar meta | Espaço: Marcar/Desmarcar | Enter: Excluir metas selecionadas",
+        choices: [...metasDesmarcadas], // A reticencias indica para o app jogar tudo do array "metas" dentro do choices
+        instructions: false
+    })
+
+    if(paraDeletar.length == 0) {
+        console.log("Nenhum item para deletar!")
+        return
+    }
+
+    paraDeletar.forEach((item) => {
+        metas = metas.filter((meta) => {
+            return meta.value != item
+        })
+    })
+
+    console.log("Meta(s) deletada(s) com sucesso")
+}
 // MENU E SUAS OPÇÕES
 const start = async () => {
     while(true) {
@@ -104,6 +128,10 @@ const start = async () => {
                     value: "realizadas"
                 },
                 {
+                    name: "Excluir metas",
+                    value: "deletar"
+                },
+                {
                     name: "Sair",
                     value: "sair"
                 }
@@ -123,6 +151,9 @@ const start = async () => {
                 break
             case "realizadas":
                 await metasRealizadas()
+                break
+            case "deletar":
+                await deletarMetas()
                 break
             case "sair":
                 console.log("Até a proxima!")
