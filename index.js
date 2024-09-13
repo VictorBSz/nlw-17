@@ -33,6 +33,11 @@ const cadastrarMeta = async () => {
 }
 
 const listarMetas = async () => {
+    if(metas.length == 0) {
+        mensagem = "Você não tem metas por enquanto!"
+        return
+    }
+
     const respostas = await checkbox({
         message: "↑↓←→: Selecionar meta | Espaço: Marcar/Desmarcar | Enter: Finalizar essa etapa",
         choices: [...metas], // A reticencias indica para o app jogar tudo do array "metas" dentro do choices
@@ -61,6 +66,10 @@ const listarMetas = async () => {
 }
 
 const metasAbertas = async () => {
+    if(metas.length == 0) {
+        mensagem = "Você não tem metas por enquanto!"
+        return
+    }
     const abertas = metas.filter((meta) => {
         return meta.checked == false
     })
@@ -77,6 +86,10 @@ const metasAbertas = async () => {
 }
 
 const metasRealizadas = async () => {
+    if(metas.length == 0) {
+        mensagem = "Você não tem metas por enquanto!"
+        return
+    }
     const realizadas = metas.filter((meta) => {
         return meta.checked
     })
@@ -93,6 +106,10 @@ const metasRealizadas = async () => {
 }
 
 const deletarMetas = async () => {
+    if(metas.length == 0) {
+        mensagem = "Você não tem metas por enquanto!"
+        return
+    }
     const metasDesmarcadas = metas.map((meta) => {
         return { value: meta.value, checked: false }
     })
@@ -127,7 +144,7 @@ const mostrarMensagens = () =>{
 // MENU E SUAS OPÇÕES
 const start = async () => {
     await carregarMetas()
-    
+
     while(true) {
         mostrarMensagens()
         await salvarMetas()
