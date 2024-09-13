@@ -1,15 +1,24 @@
 const { select, input, checkbox } = require('@inquirer/prompts')
 /* Aqui criamos a var select, e que ele deve trazer o modulo da biblioteca inquirer */
+const fs = require("fs").promises
 
 let mensagem = 'Bem vindo ao App de Metas'
-let meta = {
-    value: "Tomar 3L de agua",
-    checked: false
-}
-
-let metas = [ meta ]
 
 // FUNCTIONS
+const carregarMetas = async () => {
+    try {
+        const dados = await fs.readFile('metas.json', "utf-8")
+        metas = JSON.parse(dados)
+    }
+    catch(erro) {
+        metas = []
+    }
+}
+
+const salvarMetas = async () => {
+    await fs.writeFile("metas.json", JSON.stringify(metas, null, 2))
+}
+
 const cadastrarMeta = async () => {
     const meta = await input ({ message: "Digite a meta:"})
     if(meta.length <= 1) {
@@ -117,8 +126,11 @@ const mostrarMensagens = () =>{
 }
 // MENU E SUAS OPÇÕES
 const start = async () => {
+    await carregarMetas()
+    
     while(true) {
         mostrarMensagens()
+        await salvarMetas()
         const option = await select({
             message: "Menu >",  /* O select aguarda um obj com exatamente esses props */
             choices: [
