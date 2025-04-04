@@ -1,4 +1,4 @@
-<h1 align='center'> Projeto Next Level Week 17 </h1>
+<h1 align='center'> Aplicação para marcação de metas </h1>
 <h3 align='center'> Projeto foi feito durante a semana do NLW Pocket: Javascript, a 17ª edição do evento da RocketSeat. </h3>
 <br></br>
 
