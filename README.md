@@ -13,8 +13,9 @@ O Usuário cria e controla as próprias metas, podendo registrar quantas quiser,
 
 ## 🧠 Considerações
 
-  Imagino que possa ser considerado uma aplicação básica, porém, tenho muito orgulho de ter conseguido concluir esse pequeno projeto e anseio poder usá-lo como base para maiores
-  projetos no futuro. Gostaria de aproveitar esse trecho para agradecer a didática excelente do Mayk Brito, que me guiou por esse desafio e continua me guiando pelo curso de Full-Stack da [Rocketseat](https://rocketseat.com.br), continuo em busca constante por conhecimento e espero aprender muito mais com a plataforma.
+  Tenho muito orgulho de ter conseguido concluir esse pequeno projeto e anseio poder usá-lo como base para maiores projetos no futuro. 
+  Gostaria de aproveitar esse trecho para agradecer a didática excelente do Mayk Brito, que me guiou por esse desafio e continua me guiando pelo curso de Full-Stack da [Rocketseat](https://rocketseat.com.br), 
+  continuo em busca constante por conhecimento e espero aprender muito mais com a plataforma.
 
 <br></br>
 
